@@ -1,4 +1,4 @@
-defmodule DevfestRegistrationApp.DataCase do
+defmodule DevfestRegistrationPortal.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule DevfestRegistrationApp.DataCase do
 
   using do
     quote do
-      alias DevfestRegistrationApp.Repo
+      alias DevfestRegistrationPortal.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import DevfestRegistrationApp.DataCase
+      import DevfestRegistrationPortal.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(DevfestRegistrationApp.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(DevfestRegistrationPortal.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(DevfestRegistrationApp.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(DevfestRegistrationPortal.Repo, {:shared, self()})
     end
 
     :ok

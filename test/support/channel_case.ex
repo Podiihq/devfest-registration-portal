@@ -1,4 +1,4 @@
-defmodule DevfestRegistrationAppWeb.ChannelCase do
+defmodule DevfestRegistrationPortalWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,17 +21,17 @@ defmodule DevfestRegistrationAppWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint DevfestRegistrationAppWeb.Endpoint
+      @endpoint DevfestRegistrationPortalWeb.Endpoint
     end
   end
-
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(DevfestRegistrationApp.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(DevfestRegistrationPortal.Repo)
+
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(DevfestRegistrationApp.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(DevfestRegistrationPortal.Repo, {:shared, self()})
     end
+
     :ok
   end
-
 end
