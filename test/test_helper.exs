@@ -1,4 +1,2 @@
 ExUnit.start()
-
-Ecto.Adapters.SQL.Sandbox.mode(DevfestRegistrationApp.Repo, :manual)
-
+Ecto.Adapters.SQL.Sandbox.mode(DevfestRegistrationPortal.Repo, :manual)

@@ -1,4 +1,4 @@
-# Devfest
+# DevfestRegistrationPortal
 
 To start your Phoenix server:
 
