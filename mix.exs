@@ -42,7 +42,9 @@ defmodule DevfestRegistrationPortal.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
+      {:phoenix_integration, "~> 0.6", only: :test}
     ]
   end
 
@@ -56,7 +58,12 @@ defmodule DevfestRegistrationPortal.MixProject do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate", "test"]
+      test: ["ecto.create --quiet", "ecto.migrate", "test"],
+      check_lint: [
+        "compile --warnings-as-errors --force",
+        "credo --strict",
+        "format --check-formatted"
+      ]
     ]
   end
 end

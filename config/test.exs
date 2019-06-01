@@ -9,6 +9,9 @@ config :devfest_registration_portal, DevfestRegistrationPortalWeb.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
+config :phoenix_integration,
+  endpoint: DevfestRegistrationPortalWeb.Endpoint
+
 # Configure your database
 config :devfest_registration_portal, DevfestRegistrationPortal.Repo,
   username: "postgres",
