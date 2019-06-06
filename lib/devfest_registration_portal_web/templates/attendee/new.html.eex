@@ -1,0 +1,28 @@
+<h1>SignUp</h1>
+<%= form_for @conn, Routes.attendee_path(@conn, :create), fn f -> %>
+
+<div>
+	<%= text_input f, :first_name, placeholder: "FirstName" %>
+</div>
+
+<div>
+	<%= text_input f, :last_name, placeholder: "LastName" %>
+</div>
+
+<div>
+	<%= text_input f, :email, placeholder: "Email" %>
+</div>
+
+<div>
+	<%= password_input f, :password, placeholder: "Password" %>
+</div>
+
+<div>
+	<%= text_input f, :experience_level, placeholder: "Experience Level" %>
+</div>
+
+<div>
+	<%= text_input f, :institution, placeholder: "Institution" %>
+</div>
+<%= submit "SignUp" %>
+<% end %>
