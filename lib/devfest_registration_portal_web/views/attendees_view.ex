@@ -1,4 +1,3 @@
 defmodule DevfestRegistrationPortalWeb.AttendeeView do
-	use DevfestRegistrationPortalWeb, :view
-	
+  use DevfestRegistrationPortalWeb, :view
 end

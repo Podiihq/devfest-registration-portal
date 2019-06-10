@@ -2,15 +2,15 @@ defmodule :"Elixir.DevfestRegistrationPortal.Repo.Migrations.CreateAttendees-tab
   use Ecto.Migration
 
   def change do
-      create table(:attendees) do
-  		add :first_name, :string
-  		add :last_name, :string
-  		add :email, :string, null: false
-  		add :password_hash, :string, null: false
-  		add :experience_level, :string
-  		add :institution, :string
+    create table(:attendees) do
+      add :first_name, :string
+      add :last_name, :string
+      add :email, :string, null: false
+      add :password_hash, :string, null: false
+      add :experience_level, :string
+      add :institution, :string
 
-  	timestamps()
-  	end
+      timestamps()
+    end
   end
 end
