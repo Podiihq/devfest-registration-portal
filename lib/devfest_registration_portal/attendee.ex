@@ -1,4 +1,4 @@
-defmodule DevfestRegistrationApp.Accounts.Attendee do
+defmodule DevfestRegistrationPortal.Accounts.Attendee do
   @moduledoc """
   this is the attendee's schema
   """

@@ -2,9 +2,11 @@ defmodule DevfestRegistrationPortalWeb.AttendeeController do
   use DevfestRegistrationPortalWeb, :controller
 
   alias DevfestRegistrationPortal.Accounts
-
+  alias DevfestRegistrationPortal.Accounts.Attendee
+  
   def new(conn, _params) do
-    render(conn, "new.html")
+    changeset = Attendee.changeset(%Attendee{}, %{})
+    render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"attendee" => attendee_params}) do
