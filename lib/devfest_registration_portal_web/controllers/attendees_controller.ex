@@ -3,7 +3,7 @@ defmodule DevfestRegistrationPortalWeb.AttendeeController do
 
   alias DevfestRegistrationPortal.Accounts
   alias DevfestRegistrationPortal.Accounts.Attendee
-  
+
   def new(conn, _params) do
     changeset = Attendee.changeset(%Attendee{}, %{})
     render(conn, "new.html", changeset: changeset)
