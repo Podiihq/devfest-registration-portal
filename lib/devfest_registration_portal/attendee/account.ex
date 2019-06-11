@@ -1,5 +1,9 @@
-defmodule DevfestRegistrationPortal.Account do
+defmodule DevfestRegistrationPortal.Accounts do
+  @moduledoc """
+  this is the accounts context
+  """
   alias DevfestRegistrationApp.Accounts.Attendee
+  alias DevfestRegistrationPortal.Repo
 
   def register_attendee(params \\ %{}) do
     %Attendee{}

@@ -1,4 +1,7 @@
 defmodule DevfestRegistrationApp.Accounts.Attendee do
+  @moduledoc """
+  this is the attendee's schema
+  """
   use Ecto.Schema
   import Ecto.Changeset
 
