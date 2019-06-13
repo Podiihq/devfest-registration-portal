@@ -17,7 +17,7 @@ defmodule DevfestRegistrationPortalWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    resources "/attendees", AttendeeController, only: [:new, :create]
+    resources "/users", UserController, only: [:new, :create]
   end
 
   # Other scopes may use custom stacks.
