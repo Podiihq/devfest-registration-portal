@@ -29,7 +29,7 @@ defmodule DevfestRegistrationPortal.Accounts.User do
       :institution
     ])
     |> validate_format(:email, ~r/@/)
-    |> validate_length(:password, min: 1, max: 16)
+    |> validate_length(:password, min: 6, max: 16)
     |> _hashing_password()
   end
 
