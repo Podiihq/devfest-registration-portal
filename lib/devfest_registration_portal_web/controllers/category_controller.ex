@@ -13,7 +13,7 @@ defmodule DevfestRegistrationPortalWeb.CategoryController do
     case Codelabs.create_codelab_category(category_params) do
       {:ok, category} ->
         conn
-        |> put_flash(:info, "#{category.name}! added successfully")
+        |> put_flash(:info, "#{category.name} category added successfully!!")
         |> redirect(to: Routes.category_path(conn, :new))
 
       {:error, changeset} ->
