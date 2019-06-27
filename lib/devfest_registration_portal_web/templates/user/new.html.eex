@@ -1,0 +1,40 @@
+<h1>SignUp</h1>
+<%= form_for @changeset, Routes.user_path(@conn, :create), fn f -> %>
+
+<div>
+	<label class="label">FirstName</label>
+	<%= text_input f, :first_name, placeholder: "FirstName" %>
+	<%= error_tag f, :first_name %>
+</div>
+
+<div>
+	<label class="label">LastName</label>
+	<%= text_input f, :last_name, placeholder: "LastName" %>
+	<%= error_tag f, :last_name %>
+</div>
+
+<div>
+	<label class="label">Email</label>
+	<%= text_input f, :email, placeholder: "Email" %>
+	<%= error_tag f, :email %>
+</div>
+
+<div>
+	<label class="label">Password</label>
+	<%= password_input f, :password, placeholder: "Password" %>
+	<%= error_tag f, :password %>
+</div>
+
+<div>
+	<label class="label">ExperienceLevel</label>
+	<%= text_input f, :experience_level, placeholder: "Experience Level" %>
+	<%= error_tag f, :experience_level %>
+</div>
+
+<div>
+	<label class="label">Instituion</label>
+	<%= text_input f, :institution, placeholder: "Institution" %>
+	<%= error_tag f, :institution %>
+</div>
+<%= submit "SignUp" %>
+<% end %>

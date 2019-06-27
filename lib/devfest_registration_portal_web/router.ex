@@ -18,6 +18,7 @@ defmodule DevfestRegistrationPortalWeb.Router do
 
     get "/", PageController, :index
     get "/challenge", ChallengeController, :index
+    resources "/users", UserController, only: [:new, :create]
   end
 
   # Other scopes may use custom stacks.
