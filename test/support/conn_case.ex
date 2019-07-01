@@ -23,6 +23,7 @@ defmodule DevfestRegistrationPortalWeb.ConnCase do
 
       # The default endpoint for testing
       @endpoint DevfestRegistrationPortalWeb.Endpoint
+      use PhoenixIntegration
     end
   end
 
