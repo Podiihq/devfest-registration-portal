@@ -18,6 +18,7 @@ defmodule DevfestRegistrationPortalWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/categories", CategoryController, only: [:new, :create]
     resources "/users", UserController, only: [:new, :create]
     resources "/sessions", SessionController, only: [:new, :create]
   end
