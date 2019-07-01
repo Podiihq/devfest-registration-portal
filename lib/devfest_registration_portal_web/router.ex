@@ -7,6 +7,7 @@ defmodule DevfestRegistrationPortalWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug DevfestRegistrationPortalWeb.Authentication
   end
 
   pipeline :api do
@@ -18,6 +19,7 @@ defmodule DevfestRegistrationPortalWeb.Router do
 
     get "/", PageController, :index
     resources "/users", UserController, only: [:new, :create]
+    resources "/sessions", SessionController, only: [:new, :create]
   end
 
   # Other scopes may use custom stacks.
