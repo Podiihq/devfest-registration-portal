@@ -5,7 +5,7 @@ defmodule DevfestRegistrationPortal.Codelabs.Category do
   use Ecto.Schema
   import Ecto.Changeset
 
-  schema "codelab_categories" do
+  schema "categories" do
     field :name, :string, null: false
 
     timestamps()

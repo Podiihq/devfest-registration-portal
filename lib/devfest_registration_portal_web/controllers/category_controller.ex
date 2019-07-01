@@ -10,7 +10,7 @@ defmodule DevfestRegistrationPortalWeb.CategoryController do
   end
 
   def create(conn, %{"category" => category_params}) do
-    case Codelabs.create_codelab_category(category_params) do
+    case Codelabs.create_category(category_params) do
       {:ok, category} ->
         conn
         |> put_flash(:info, "#{category.name} category added successfully!!")

@@ -7,7 +7,7 @@ defmodule DevfestRegistrationPortal.CategoryTest do
 
   test "create_codelab_category/1 inserts the specified codelab category" do
     category = %{"name" => "DevOps"}
-    Codelabs.create_codelab_category()
+    Codelabs.create_category(category)
 
     assert Repo.get_by(Category, name: "DevOps") == category
   end

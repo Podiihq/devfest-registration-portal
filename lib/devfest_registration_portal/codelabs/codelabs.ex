@@ -5,7 +5,7 @@ defmodule DevfestRegistrationPortal.Codelabs do
   alias DevfestRegistrationPortal.Codelabs.Category
   alias DevfestRegistrationPortal.Repo
 
-  def create_codelab_category(attrs) do
+  def create_category(attrs) do
     %Category{}
     |> Category.changeset(attrs)
     |> Repo.insert()
