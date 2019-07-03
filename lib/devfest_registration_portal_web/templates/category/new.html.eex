@@ -1,0 +1,6 @@
+<h2> Create Codelab Category </h2>
+<%= form_for @changeset, Routes.category_path(@conn, :create), fn f -> %>
+    <%= label f, :category_name %>
+    <%= text_input f, :name, placeholder: "Enter category name" %>
+    <%= submit "Create" %>
+<% end %>
