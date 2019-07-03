@@ -5,7 +5,7 @@ defmodule DevfestRegistrationPortal.Factory do
   alias DevfestRegistrationPortal.Codelabs.Category
   alias DevfestRegistrationPortal.Repo
 
-  def build(:codelab_category) do
+  def build(:category) do
     %Category{
       name: "android"
     }

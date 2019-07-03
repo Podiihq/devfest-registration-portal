@@ -11,4 +11,11 @@ defmodule DevfestRegistrationPortal.CategoryTest do
 
     assert Repo.get_by(Category, name: "DevOps") == category
   end
+
+  test "list_all_categories/0 gets all regisitered codelabs" do
+    1..30
+    |> Enum.each(fn num -> insert_to_new_db(:category, name: "category#{num}") end)
+
+    assert Codelabs.list_all_categories() |> Enum.count() == 30
+  end
 end
