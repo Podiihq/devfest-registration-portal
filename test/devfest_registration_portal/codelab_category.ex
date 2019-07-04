@@ -1,4 +1,8 @@
 defmodule DevfestRegistrationPortal.CategoryTest do
+  @moduledoc """
+    Handles tests for codelab categories
+  """
+
   import DevfestRegistrationPortal.Factory
 
   alias DevfestRegistrationPortal.Codelabs
