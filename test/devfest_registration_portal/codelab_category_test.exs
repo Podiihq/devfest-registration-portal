@@ -3,6 +3,7 @@ defmodule DevfestRegistrationPortal.CategoryTest do
     Handles tests for codelab categories
   """
   use DevfestRegistrationPortalWeb.ConnCase
+  import DevfestRegistrationPortal.Factory
 
   alias DevfestRegistrationPortal.Codelabs
   alias DevfestRegistrationPortal.Codelabs.Category
