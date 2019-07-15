@@ -10,7 +10,7 @@ defmodule DevfestRegistrationPortalTest.CategoryIntegrationTest do
   end
 
   test "admin can list codelab categories", %{conn: conn} do
-    {:ok, category} = insert!(:category)
+    category = insert!(:category)
 
     conn
     |> get(Routes.category_path(conn, :index))

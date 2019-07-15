@@ -10,4 +10,9 @@ defmodule DevfestRegistrationPortal.Codelabs do
     |> Category.changeset(attrs)
     |> Repo.insert()
   end
+
+  def list_all_categories() do
+    Category
+    |> Repo.all()
+  end
 end

@@ -9,6 +9,11 @@ defmodule DevfestRegistrationPortalWeb.CategoryController do
     render(conn, "new.html", changeset: changeset)
   end
 
+  def index(conn, _params) do
+    categories = Codelabs.list_all_categories()
+    render(conn, "index.html", categories: categories)
+  end
+
   def create(conn, %{"category" => category_params}) do
     case Codelabs.create_category(category_params) do
       {:ok, category} ->
