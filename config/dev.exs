@@ -71,5 +71,5 @@ config :devfest_registration_portal, DevfestRegistrationPortal.Repo,
   username: "postgres",
   password: "postgres",
   database: "devfest_registration_portal_dev",
-  hostname: "localhost",
+  hostname: "db",
   pool_size: 10
