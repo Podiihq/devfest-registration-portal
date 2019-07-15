@@ -1,4 +1,4 @@
-defmodule DevfestRegistrationPortal.Codelabs.Codelab do
+defmodule DevfestRegistrationPortal.Codelab do
   use Ecto.Schema
   import Ecto.Changeset
 

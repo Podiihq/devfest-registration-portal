@@ -1,6 +1,6 @@
-defmodule DevfestRegistrationPortalWeb.CodelabController do
+defmodule DevfestRegistrationPortalWeb.ChallengeController do
   use DevfestRegistrationPortalWeb, :controller
-  alias DevfestRegistrationPortal.Codelabs.Codelab
+  alias DevfestRegistrationPortal.Codelab
 
   def new(conn, _param) do
     changeset = Codelab.changeset(%Codelab{}, %{})
