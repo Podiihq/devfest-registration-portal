@@ -19,7 +19,7 @@ defmodule DevfestRegistrationPortalWeb.CategoryController do
       {:ok, category} ->
         conn
         |> put_flash(:info, "#{category.name} category added successfully!!")
-        |> redirect(to: Routes.category_path(conn, :new))
+        |> redirect(to: Routes.category_path(conn, :index))
 
       {:error, changeset} ->
         conn
