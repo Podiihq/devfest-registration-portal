@@ -11,7 +11,7 @@ defmodule DevfestRegistrationPortal.Codelabs do
     |> Repo.insert()
   end
 
-  def list_all_categories() do
+  def list_all_categories do
     Category
     |> Repo.all()
   end
