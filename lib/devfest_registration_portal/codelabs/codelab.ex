@@ -1,4 +1,9 @@
 defmodule DevfestRegistrationPortal.Codelab do
+  @moduledoc """
+
+  This is codelab schema
+
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

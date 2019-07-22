@@ -1,3 +1,3 @@
 defmodule DevfestRegistrationPortalWeb.ChallengeView do
-	use DevfestRegistrationPortalWeb, :view
+  use DevfestRegistrationPortalWeb, :view
 end

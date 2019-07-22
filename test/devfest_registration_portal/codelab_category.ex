@@ -1,4 +1,5 @@
 defmodule DevfestRegistrationPortal.CategoryTest do
+  @moduledoc false
   import DevfestRegistrationPortal.Factory
 
   alias DevfestRegistrationPortal.Codelabs
