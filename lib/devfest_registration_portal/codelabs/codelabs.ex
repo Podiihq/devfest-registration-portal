@@ -2,6 +2,7 @@ defmodule DevfestRegistrationPortal.Codelabs do
   @moduledoc """
       Context for codelabs
   """
+  alias DevfestRegistrationPortal.Codelab
   alias DevfestRegistrationPortal.Codelabs.Category
   alias DevfestRegistrationPortal.Repo
 
@@ -22,5 +23,11 @@ defmodule DevfestRegistrationPortal.Codelabs do
   def list_all_categories do
     Category
     |> Repo.all()
+  end
+
+  def create_codelab(attrs \\ %{}) do
+    %Codelab{}
+    |> Codelab.changeset(attrs)
+    |> Repo.insert()
   end
 end
