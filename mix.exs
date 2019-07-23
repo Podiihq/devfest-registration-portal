@@ -42,8 +42,8 @@ defmodule DevfestRegistrationPortal.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:comeonin, " ~> 4.1"},
-      {:pbkdf2_elixir, "~> 0.12"},
+      {:comeonin, "~> 5.1.2"},
+      {:bcrypt_elixir, "~> 2.0"},
       {:plug_cowboy, "~> 2.0"},
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:phoenix_integration, "~> 0.6", only: :test}

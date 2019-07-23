@@ -3,6 +3,7 @@ defmodule DevfestRegistrationPortalWeb.UserController do
 
   alias DevfestRegistrationPortal.Accounts
   alias DevfestRegistrationPortal.Accounts.User
+  alias DevfestRegistrationPortalWeb.Auth
 
   def new(conn, _params) do
     changeset = User.changeset(%User{}, %{})
@@ -11,9 +12,10 @@ defmodule DevfestRegistrationPortalWeb.UserController do
 
   def create(conn, %{"user" => user_params}) do
     case Accounts.register_user(user_params) do
-      {:ok, _user} ->
+      {:ok, user} ->
         conn
-        |> put_flash(:info, "Welcome #{user_params["first_name"]}")
+        |> Auth.login(user)
+        |> put_flash(:info, "Welcome #{user.first_name}")
         |> redirect(to: Routes.page_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->

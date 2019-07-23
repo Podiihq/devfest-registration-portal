@@ -23,6 +23,7 @@ defmodule DevfestRegistrationPortalWeb do
 
       import Plug.Conn
       import DevfestRegistrationPortalWeb.Gettext
+      import DevfestRegistrationPortalWeb.Auth, only: [authenticate_user: 2]
       alias DevfestRegistrationPortalWeb.Router.Helpers, as: Routes
     end
   end
@@ -50,6 +51,7 @@ defmodule DevfestRegistrationPortalWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import DevfestRegistrationPortalWeb.Auth, only: [authenticate_user: 2]
     end
   end
 
