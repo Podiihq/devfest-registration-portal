@@ -1,0 +1,17 @@
+<table class="table is-narrow">
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= for category <- @categories do %>
+        <tr>
+            <td><%= category.name %></td>
+            <td><%= link "Edit", to: "#" , class: "button is-primary"%></td>
+            <td><%= link "Delete", to: "#" , class: "button is-danger", method: "delete"%></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+  

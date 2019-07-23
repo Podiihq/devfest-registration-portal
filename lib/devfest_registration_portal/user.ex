@@ -30,16 +30,21 @@ defmodule DevfestRegistrationPortal.Accounts.User do
     ])
     |> validate_format(:email, ~r/@/)
     |> validate_length(:password, min: 6, max: 16)
-    |> _hashing_password()
+    |> _add_hashed_password()
   end
 
-  defp _hashing_password(changeset) do
+  defp _add_hashed_password(changeset) do
     case changeset do
-      %Ecto.Changeset{valid?: true, changes: %{password: password}} ->
-        put_change(changeset, :password_hash, Comeonin.Pbkdf2.hashpwsalt(password))
+      %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
+        put_change(changeset, :password_hash, _hash_password(pass))
 
       _ ->
         changeset
     end
+  end
+
+  defp _hash_password(password) do
+    hash = Bcrypt.add_hash(password)
+    hash.password_hash
   end
 end
