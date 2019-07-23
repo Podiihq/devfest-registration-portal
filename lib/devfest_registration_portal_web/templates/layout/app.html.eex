@@ -12,9 +12,21 @@
     <header>
       <section class="container">
         <nav role="navigation">
+          <nav role="navigation">
           <ul>
-            <li><a href="">Login</a></li>
+          <%= if @current_user do %>
+          <li><%= @current_user.first_name %></li>
+          <li>
+          <%= link "Log out",
+          to: Routes.session_path(@conn, :delete, @current_user),
+          method: "delete" %>
+          </li>
+          <% else %>
+          <li><%= link "Register", to: Routes.user_path(@conn, :new) %></li>
+          <li><%= link "Log in", to: Routes.session_path(@conn, :new) %></li>
+          <% end %>
           </ul>
+          </nav>
         </nav>
         <a href="/" class="image is-128x128 phx-logo">
           <img src="<%= Routes.static_path(@conn, "/images/devfest.png") %>" alt="DevFest Western Kenya"/>
@@ -30,3 +42,6 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </body>
 </html>
+
+
+
