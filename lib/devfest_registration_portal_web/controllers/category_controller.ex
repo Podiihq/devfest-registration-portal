@@ -2,10 +2,9 @@ defmodule DevfestRegistrationPortalWeb.CategoryController do
   use DevfestRegistrationPortalWeb, :controller
 
   alias DevfestRegistrationPortal.Codelabs
-  alias DevfestRegistrationPortal.Codelabs.Category
 
   def new(conn, _params) do
-    changeset = Category.changeset(%Category{})
+    changeset = Codelabs.change_category()
     render(conn, "new.html", changeset: changeset)
   end
 
@@ -25,5 +24,26 @@ defmodule DevfestRegistrationPortalWeb.CategoryController do
         conn
         |> render("new.html", changeset: changeset)
     end
+  end
+
+  def edit(conn, %{"id" => id}) do
+    category = Codelabs.get_category(id)
+    changeset = Codelabs.change_category(category)
+    conn
+    |> render("edit.html", category: category, changeset: changeset)
+  end
+
+  def update(conn, %{"category" => category_params, "id" => id}) do
+    category = Codelabs.get_category(id)
+    case Codelabs.update_category(category, category_params) do
+      {:ok, category} ->
+        conn
+        |> put_flash(:info, "#{category.name} category updated successfully!!")
+        |> redirect(to: Routes.category_path(conn, :index))
+
+      {:error, changeset} ->
+        conn
+        |> render("edit.html", changeset: changeset, category: category)
+    end   
   end
 end
