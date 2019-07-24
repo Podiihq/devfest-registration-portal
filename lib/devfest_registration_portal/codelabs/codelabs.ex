@@ -24,8 +24,7 @@ defmodule DevfestRegistrationPortal.Codelabs do
     |> Repo.all()
   end
 
-
-  def change_category() do
+  def change_category do
     %Category{}
     |> Category.changeset()
   end
