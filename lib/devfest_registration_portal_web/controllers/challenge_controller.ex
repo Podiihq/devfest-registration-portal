@@ -5,7 +5,7 @@ defmodule DevfestRegistrationPortalWeb.ChallengeController do
   alias DevfestRegistrationPortal.Codelabs
 
   def new(conn, _param) do
-    changeset = Codelab.changeset(%Codelab{}, %{})
+    changeset = Codelab.changeset(%Codelab{})
     render(conn, "new.html", changeset: changeset)
   end
 
@@ -14,10 +14,14 @@ defmodule DevfestRegistrationPortalWeb.ChallengeController do
   end
 
   def create(conn, %{"codelab" => codelab_params}) do
-    {:ok, codelab} = Codelabs.create_codelab(codelab_params)
+    case Codelabs.create_codelab(codelab_params) do
+      {:ok, codelab} ->
+        conn
+        |> put_flash(:info, "#{codelab.name} created!")
+        |> redirect(to: Routes.challenge_path(conn, :index))
 
-    conn
-    |> put_flash(:info, "#{codelab.name} created!")
-    |> redirect(to: Routes.challenge_path(conn, :index))
+      {:error, changeset} ->
+        render(conn, "new.html", changeset: changeset)
+    end
   end
 end

@@ -17,7 +17,7 @@ defmodule DevfestRegistrationPortal.Codelab do
     timestamps()
   end
 
-  def changeset(codelab, attr) do
+  def changeset(codelab, attr \\ %{}) do
     codelab
     |> cast(attr, [
       :category_id,
