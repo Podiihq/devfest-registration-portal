@@ -7,6 +7,7 @@ defmodule DevfestRegistrationPortal.Repo.Migrations.CreateCodelabs do
       add :url, :string
       add :level, :string
       add :name, :string
+      add :category_id, references(:categories)
 
       timestamps()
     end

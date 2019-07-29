@@ -6,12 +6,14 @@ defmodule DevfestRegistrationPortal.Codelab do
   """
   use Ecto.Schema
   import Ecto.Changeset
+  alias DevfestRegistrationPortal.Codelabs.Category
 
   schema "codelabs" do
     field :description, :string
     field :url, :string
     field :level, :string
     field :name, :string
+    belongs_to :category, Category
 
     timestamps()
   end
@@ -22,7 +24,8 @@ defmodule DevfestRegistrationPortal.Codelab do
       :description,
       :url,
       :level,
-      :name
+      :name,
+      :category_id
     ])
     |> validate_required([:url, :level, :name])
     |> validate_length(:description, max: 100)
