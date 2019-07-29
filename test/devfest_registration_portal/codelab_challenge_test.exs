@@ -8,7 +8,6 @@ defmodule DevfestRegistrationPortal.CodelabChallengeTest do
   test "create_codelab/1 inserts codelab challenge to database" do
     assert {:ok, _codelab} =
              Codelabs.create_codelab(%{
-               "category_id" => 1,
                "url" => "https://regex101.com",
                "level" => "level1",
                "name" => "challenge1"

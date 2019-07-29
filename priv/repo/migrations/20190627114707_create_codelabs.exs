@@ -3,7 +3,6 @@ defmodule DevfestRegistrationPortal.Repo.Migrations.CreateCodelabs do
 
   def change do
     create table(:codelabs) do
-      add :category_id, :integer
       add :description, :string
       add :url, :string
       add :level, :string

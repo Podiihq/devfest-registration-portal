@@ -8,7 +8,6 @@ defmodule DevfestRegistrationPortal.Codelab do
   import Ecto.Changeset
 
   schema "codelabs" do
-    field :category_id, :integer
     field :description, :string
     field :url, :string
     field :level, :string
@@ -20,13 +19,12 @@ defmodule DevfestRegistrationPortal.Codelab do
   def changeset(codelab, attr \\ %{}) do
     codelab
     |> cast(attr, [
-      :category_id,
       :description,
       :url,
       :level,
       :name
     ])
-    |> validate_required([:category_id, :url, :level, :name])
+    |> validate_required([:url, :level, :name])
     |> validate_length(:description, max: 100)
   end
 end
