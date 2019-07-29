@@ -7,6 +7,7 @@ defmodule DevfestRegistrationPortalWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug DevfestRegistrationPortalWeb.Auth
   end
 
   pipeline :api do
@@ -20,6 +21,7 @@ defmodule DevfestRegistrationPortalWeb.Router do
     get "/challenge", ChallengeController, :index
     resources "/categories", CategoryController, only: [:new, :create, :index, :edit, :update]
     resources "/users", UserController, only: [:new, :create]
+    resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
 
   # Other scopes may use custom stacks.
