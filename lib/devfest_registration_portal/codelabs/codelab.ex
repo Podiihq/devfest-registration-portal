@@ -6,12 +6,14 @@ defmodule DevfestRegistrationPortal.Codelab do
   """
   use Ecto.Schema
   import Ecto.Changeset
+  alias DevfestRegistrationPortal.Codelabs.Category
 
   schema "codelabs" do
     field :description, :string
     field :url, :string
     field :level, :string
     field :name, :string
+    belongs_to :category, Category
 
     timestamps()
   end
