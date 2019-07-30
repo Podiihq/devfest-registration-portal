@@ -23,4 +23,33 @@ defmodule DevfestRegistrationPortal.Codelabs do
     Category
     |> Repo.all()
   end
+
+  def change_category do
+    %Category{}
+    |> Category.changeset()
+  end
+
+  def change_category(category) do
+    category
+    |> Category.changeset()
+  end
+
+  @doc """
+  Returns the category from the the database with the given id
+  """
+  @spec get_category(integer()) :: %Category{} | nil
+  def get_category(id) do
+    Category
+    |> Repo.get(id)
+  end
+
+  @doc """
+  Updates a given category with the given attributes
+  """
+  @spec update_category(%Category{}, map()) :: {:ok, %Category{}} | {:error, %Ecto.Changeset{}}
+  def update_category(category, attrs) do
+    category
+    |> Category.changeset(attrs)
+    |> Repo.update()
+  end
 end

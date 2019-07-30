@@ -19,7 +19,7 @@ defmodule DevfestRegistrationPortalWeb.Router do
 
     get "/", PageController, :index
     get "/challenge", ChallengeController, :index
-    resources "/categories", CategoryController, only: [:new, :create, :index]
+    resources "/categories", CategoryController, only: [:new, :create, :index, :edit, :update]
     resources "/users", UserController, only: [:new, :create]
     resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
