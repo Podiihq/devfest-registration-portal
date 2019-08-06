@@ -20,4 +20,12 @@ defmodule DevfestRegistrationPortal.CategoryTest do
 
     assert Codelabs.list_all_categories() |> Enum.count() == 30
   end
+
+  test "delete_category/1 deletes the given category from the database" do
+    category = insert!(:category)
+
+    assert {:ok, deleted_category} = Codelabs.delete_category(category)
+    assert deleted_category.id == category.id
+    assert Repo.get(Category, category.id) == nil
+  end
 end

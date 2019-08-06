@@ -16,4 +16,15 @@ defmodule DevfestRegistrationPortalTest.CategoryIntegrationTest do
     |> get(Routes.category_path(conn, :index))
     |> assert_response(html: "#{category.name}")
   end
+
+  test "codelab category can be deleted", %{conn: conn} do
+    category = insert!(:category)
+
+    conn
+    |> get(Routes.category_path(conn, :index))
+    |> follow_link("#delete-category-#{category.id}", %{method: "delete"})
+    |> assert_response(html: "#{category.name} deleted successfully!!")
+    |> follow_redirect(to: Routes.category_path(conn, :index))
+    |> refute_response(html: "#{category.name}")
+  end
 end
