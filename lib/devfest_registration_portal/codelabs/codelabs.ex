@@ -25,6 +25,15 @@ defmodule DevfestRegistrationPortal.Codelabs do
     |> Repo.all()
   end
 
+  @doc """
+  Deletes the given category from the database
+  """
+  @spec delete_category(%Category{}) :: {:ok, %Category{}} | {:error, %Ecto.Changeset{}}
+  def delete_category(category) do
+    category
+    |> Repo.delete()
+  end
+
   def create_codelab(attrs \\ %{}) do
     %Codelab{}
     |> Codelab.changeset(attrs)

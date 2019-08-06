@@ -8,8 +8,8 @@
         <%= for category <- @categories do %>
         <tr>
             <td><%= category.name %></td>
-            <td><%= link "Edit", to: Routes.category_path(@conn, :edit, category) , class: "button is-primary"%></td>
-            <td><%= link "Delete", to: "#" , class: "button is-danger", method: "delete"%></td>
+            <td><%= link "Edit", to: Routes.category_path(@conn, :edit, category), class: "button is-primary"%></td>
+            <td><%= link "Delete", to: Routes.category_path(@conn, :delete, category), method: "delete", data: [confirm: "Delete Category?"], class: "button is-danger", id: "delete-category-#{category.id}" %></td>
         </tr>
         <% end %>
     </tbody>
