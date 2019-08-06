@@ -26,4 +26,20 @@ defmodule DevfestRegistrationPortalWeb.CategoryController do
         |> render("new.html", changeset: changeset)
     end
   end
+
+  def delete(conn, %{"id" => id}) do
+    category = Codelabs.get_category(id)
+
+    case Codelabs.delete_category(category) do
+      {:ok, category} ->
+        conn
+        |> put_flash(:info, "#{category.name} deleted successfully!!")
+        |> redirect(to: Routes.category_path(conn, :index))
+
+      {:error, _changeset} ->
+        conn
+        |> put_flash(:error, "Sorry, an error occured")
+        |> redirect(to: Routes.category_path(conn, :index))
+    end
+  end
 end
