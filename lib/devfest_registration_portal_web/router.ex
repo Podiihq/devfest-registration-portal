@@ -18,14 +18,17 @@ defmodule DevfestRegistrationPortalWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    get "/challenge", ChallengeController, :index
-    resources "/categories", CategoryController, only: [:new, :create, :index, :delete]
+
+    resources "/categories", CategoryController,
+      only: [:new, :create, :index, :edit, :update, :delete]
+
     resources "/users", UserController, only: [:new, :create]
+    resources "/challenge", ChallengeController
     resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
 
   # Other scopes may use custom stacks.
   # scope "/api", DevfestRegistrationPortalWeb do
-  #   pipe_through :api
+  # pipe_through :api
   # end
 end

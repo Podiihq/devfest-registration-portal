@@ -8,8 +8,16 @@ defmodule DevfestRegistrationPortal.CategoryTest do
   alias DevfestRegistrationPortal.Codelabs.Category
   alias DevfestRegistrationPortal.Repo
 
-  test "create_codelab_category/1 inserts the specified codelab category" do
-    {:ok, category} = Codelabs.create_category(%{"name" => "DevOps"})
+  setup do
+    [
+      category_attrs: %{"name" => "DevOps"}
+    ]
+  end
+
+  test "create_codelab_category/1 inserts the specified codelab category", %{
+    category_attrs: attrs
+  } do
+    {:ok, category} = Codelabs.create_category(attrs)
 
     assert Repo.get_by(Category, name: "DevOps") == category
   end
@@ -27,5 +35,13 @@ defmodule DevfestRegistrationPortal.CategoryTest do
     assert {:ok, deleted_category} = Codelabs.delete_category(category)
     assert deleted_category.id == category.id
     assert Repo.get(Category, category.id) == nil
+  end
+
+  test "update_category/2 updates the given category with the attributes specified" do
+    category = insert!(:category)
+
+    {:ok, updated_category} = Codelabs.update_category(category, %{name: "abc"})
+
+    assert Repo.get(Category, category.id) == updated_category
   end
 end
