@@ -25,6 +25,15 @@ defmodule DevfestRegistrationPortal.Codelabs do
     |> Repo.all()
   end
 
+  @doc """
+  Returns a list of codelabs present in the database
+  """
+  @spec list_all_codelabs() :: [%Codelab{}, ...]
+  def list_all_codelabs do
+    Codelab
+    |> Repo.all()
+  end
+
   def create_codelab(attrs \\ %{}) do
     %Codelab{}
     |> Codelab.changeset(attrs)

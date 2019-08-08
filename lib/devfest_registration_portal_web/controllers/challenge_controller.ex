@@ -13,6 +13,11 @@ defmodule DevfestRegistrationPortalWeb.ChallengeController do
     render(conn, "index.html")
   end
 
+  def show(conn, _params) do
+    codelabs = Codelabs.list_all_codelabs()
+    render(conn, "show.html", codelabs: codelabs)
+  end
+
   def create(conn, %{"codelab" => codelab_params}) do
     case Codelabs.create_codelab(codelab_params) do
       {:ok, codelab} ->
