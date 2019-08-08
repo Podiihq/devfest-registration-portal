@@ -16,4 +16,14 @@ defmodule DevfestRegistrationPortalTest.CategoryIntegrationTest do
     |> get(Routes.category_path(conn, :index))
     |> assert_response(html: "#{category.name}")
   end
+
+  test "admin can edit codelab categories", %{conn: conn} do
+    category = insert!(:category)
+
+    conn
+    |> get(Routes.category_path(conn, :edit, category))
+    |> follow_form(%{category: %{name: "abc"}})
+    |> refute_response(html: "#{category.name}")
+    |> assert_response(html: "abc")
+  end
 end

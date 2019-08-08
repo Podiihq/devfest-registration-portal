@@ -1,0 +1,7 @@
+<h2> Edit Codelab Category </h2>
+<%= form_for @changeset, Routes.category_path(@conn, :update, @category), fn f -> %>
+    <%= label f, :category_name %>
+    <%= text_input f, :name, placeholder: "Enter category name" %>
+    <%= error_tag f, :name %>
+    <%= submit "Save" %>
+<% end %>
