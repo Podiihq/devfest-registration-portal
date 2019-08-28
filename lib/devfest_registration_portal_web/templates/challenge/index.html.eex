@@ -1,142 +1,26 @@
-<section>
-<div class="columns">
-	<div class="column">
- <h2 class="title is-2">Choose a Codelab to take</h2>
-</div>
-<div class="dropdown">
-  <div class="dropdown-trigger">
-    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-      <span>Catalogue</span>
-      <span class="icon is-small">
-        <i class="fa fa-angle-down" aria-hidden="true"></i>
-      </span>
-    </button>
-  </div>
-  <div class="dropdown-menu" id="dropdown-menu" role="menu">
-    <div class="dropdown-content">
-      <a href="#" class="dropdown-item">
-        Data
-      </a>
-      <hr class="dropdown-divider">
-      <a class="dropdown-item">
-        Networking
-      </a>
-      <hr class="dropdown-divider">
-      <a href="#" class="dropdown-item">
-        Monitoring
-      </a>
-      <hr class="dropdown-divider">
-      <a href="#" class="dropdown-item">
-        Hackerthons
-      </a>
-    </div>
-  </div>
-</div>
-</div>
-<div class="columns">
-  <div class="column">
-   <div class="card">
-  <div class="card-content">
-    <p>
-      “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-    </p>
-    <p class="subtitle">
-      Jeff Atwood
-    </p>
-  </div>
-  <footer class="card-footer">
-    <p class="card-footer-item">
-      <span class="icon">
-        <i class="fa fa-laptop" aria-hidden="true"></i>
-      </span>
-    </p>
-    <p class="card-footer-item">
-      <span>
-        Start
-      </span>
-    </p>
-  </footer>
-</div>
-  </div>
-  <div class="column">
-    <div class="card">
-  <div class="card-content">
-    <p>
-      “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-    </p>
-    <p class="subtitle">
-      Jeff Atwood
-    </p>
-  </div>
-  <footer class="card-footer">
-    <p class="card-footer-item">
-      <span class="icon">
-        <i class="fa fa-laptop" aria-hidden="true"></i>
-      </span>
-    </p>
-    <p class="card-footer-item">
-      <span>
-        Start
-      </span>
-    </p>
-  </footer>
-</div>
-  </div>
-  <div class="column">
-   <div class="card">
-  <div class="card-content">
-    <p>
-      “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-    </p>
-    <p class="subtitle">
-      Jeff Atwood
-    </p>
-  </div>
-  <footer class="card-footer">
-    <p class="card-footer-item">
-      <span class="icon">
-        <i class="fa fa-laptop" aria-hidden="true"></i>
-      </span>
-    </p>
-    <p class="card-footer-item">
-      <span>
-        Start
-      </span>
-    </p>
-  </footer>
-</div>
-  </div>
-  <div class="column">
-    <div class="card">
-  <div class="card-content">
-    <p>
-      “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-    </p>
-    <p class="subtitle">
-      Jeff Atwood
-    </p>
-  </div>
-  <footer class="card-footer">
-    <p class="card-footer-item">
-      <span class="icon">
-        <i class="fa fa-laptop" aria-hidden="true"></i>
-      </span>
-    </p>
-    <p class="card-footer-item">
-      <span>
-        Start
-      </span>
-    </p>
-  </footer>
-</div>
-  </div>
-</div>
-
-</section>
-<script>
-	var dropdown = document.querySelector('.dropdown');
-	dropdown.addEventListener('click', function(event) {
-  	event.stopPropagation();
-  	dropdown.classList.toggle('is-active');
-	});
-</script>
+<h1>List Of Codelabs</h1>
+<table class="table is-narrow">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Url</th>
+            <th>Description</th>
+            <th>Level</th>
+            <th>Category</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <%= for codelab <- @codelabs do %>
+        <tr>
+            <td><%= codelab.name %></td>
+            <td><%= codelab.url %></td>
+            <td><%= codelab.description %></td>
+            <td><%= codelab.level %></td>
+            <td><%= category_name(codelab.category)%></td>
+            <td><%= link "Edit", to: Routes.challenge_path(@conn, :edit, codelab) , class: "button is-primary"%></td>
+            <td><%= link "Delete", to: "#" , class: "button is-danger", method: "delete"%></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

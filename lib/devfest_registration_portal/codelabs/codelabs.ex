@@ -34,6 +34,15 @@ defmodule DevfestRegistrationPortal.Codelabs do
     |> Repo.all()
   end
 
+  @doc """
+  Returns a list of codelabs with preloaded category
+  """
+
+  def list_of_codelabs_with_category_preloaded do
+    codelabs = for codelab <- list_all_codelabs(), do: codelab
+    Repo.preload(codelabs, :category)
+  end
+
   def create_codelab(attrs \\ %{}) do
     %Codelab{}
     |> Codelab.changeset(attrs)

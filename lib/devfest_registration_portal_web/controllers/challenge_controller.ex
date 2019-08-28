@@ -10,12 +10,8 @@ defmodule DevfestRegistrationPortalWeb.ChallengeController do
   end
 
   def index(conn, _params) do
-    render(conn, "index.html")
-  end
-
-  def show(conn, _params) do
-    codelabs = Codelabs.list_all_codelabs()
-    render(conn, "show.html", codelabs: codelabs)
+    codelabs = Codelabs.list_of_codelabs_with_category_preloaded()
+    render(conn, "index.html", codelabs: codelabs)
   end
 
   def create(conn, %{"codelab" => codelab_params}) do
