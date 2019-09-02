@@ -31,4 +31,12 @@ defmodule DevfestRegistrationPortal.CodelabChallengeTest do
     assert %{description: ["should be at most 100 character(s)"]} = errors_on(changeset)
     assert {:error, _changeset} = Codelabs.create_codelab(attr)
   end
+
+  test "description should be of maximum length of 100", %{valid_attr: valid_attr} do
+    description = String.duplicate("a", 101)
+    attr = %{valid_attr | "description" => description}
+    changeset = Codelab.changeset(%Codelab{}, attr)
+
+    assert %{description: ["should be at most 100 character(s)"]} = errors_on(changeset)
+  end
 end
