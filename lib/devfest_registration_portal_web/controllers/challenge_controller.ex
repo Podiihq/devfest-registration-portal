@@ -1,7 +1,6 @@
 defmodule DevfestRegistrationPortalWeb.ChallengeController do
   use DevfestRegistrationPortalWeb, :controller
   alias DevfestRegistrationPortalWeb
-  plug :authenticate_user when action in [:index]
 
   alias DevfestRegistrationPortal.Codelab
   alias DevfestRegistrationPortal.Codelabs
