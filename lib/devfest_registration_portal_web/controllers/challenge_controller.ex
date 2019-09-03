@@ -1,6 +1,5 @@
 defmodule DevfestRegistrationPortalWeb.ChallengeController do
   use DevfestRegistrationPortalWeb, :controller
-  alias DevfestRegistrationPortalWeb
 
   alias DevfestRegistrationPortal.Codelab
   alias DevfestRegistrationPortal.Codelabs
