@@ -23,10 +23,12 @@ defmodule DevfestRegistrationPortalWeb.Router do
     get "/", PageController, :index
     resources "/categories", CategoryController, only: [:new, :create, :index, :edit, :update]
     resources "/challenge", ChallengeController
+<<<<<<< HEAD
   end
 
   scope "/", DevfestRegistrationPortalWeb do
     pipe_through :browser
+>>>>>>> 993e286d03d10967d209e6e9bc5bfddc490c5c81
     resources "/sessions", SessionController, only: [:new, :create, :delete]
     resources "/users", UserController, only: [:new, :create]
   end
