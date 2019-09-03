@@ -10,19 +10,25 @@ defmodule DevfestRegistrationPortalWeb.Router do
     plug DevfestRegistrationPortalWeb.Auth
   end
 
+  pipeline :authorize do
+    plug DevfestRegistrationPortalWeb.Authorize
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
 
   scope "/", DevfestRegistrationPortalWeb do
-    pipe_through :browser
-
+    pipe_through [:browser, :authorize]
     get "/", PageController, :index
-
     resources "/categories", CategoryController, only: [:new, :create, :index, :edit, :update]
-    resources "/users", UserController, only: [:new, :create]
     resources "/challenge", ChallengeController
+  end
+
+  scope "/", DevfestRegistrationPortalWeb do
+    pipe_through :browser
     resources "/sessions", SessionController, only: [:new, :create, :delete]
+    resources "/users", UserController, only: [:new, :create]
   end
 
   # Other scopes may use custom stacks.

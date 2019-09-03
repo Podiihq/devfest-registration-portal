@@ -1,3 +1,0 @@
-defmodule DevfestRegistrationPortalWeb.PageControllerTest do
-  use DevfestRegistrationPortalWeb.ConnCase
-end
