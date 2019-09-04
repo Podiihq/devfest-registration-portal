@@ -17,7 +17,7 @@
             <td><%= codelab.url %></td>
             <td><%= codelab.description %></td>
             <td><%= codelab.level %></td>
-            <td><%= codelab.category.name%></td>
+            <td><%= category_name(codelab.category)%></td>
             <td><%= link "Edit", to: "#" , class: "button is-primary"%></td>
             <td><%= link "Delete", to: "#" , class: "button is-danger", method: "delete"%></td>
         </tr>
