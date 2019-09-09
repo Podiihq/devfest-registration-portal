@@ -57,5 +57,8 @@ Your last commit message should be in the form `Update contribution readme#fixes
 
 Then create a pull request if you feel the issue is completed.
 
+## Official site
+  - Devfest registration website <https://devfest-portal.herokuapp.com/sessions/new>
+
 
 
