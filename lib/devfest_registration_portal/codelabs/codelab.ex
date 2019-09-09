@@ -27,7 +27,7 @@ defmodule DevfestRegistrationPortal.Codelab do
       :name,
       :category_id
     ])
-    |> validate_required([:name])
+    |> validate_required([:level, :name])
     |> validate_length(:description, max: 100)
   end
 end
