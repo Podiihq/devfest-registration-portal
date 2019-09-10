@@ -34,15 +34,11 @@ defmodule DevfestRegistrationPortal.CodelabChallengeTest do
     assert {:error, _changeset} = Codelabs.create_codelab(attr)
   end
 
-  test "update_codelab/2 updates codelab challenge", %{
-    valid_attr: valid_attr,
-    category_attrs: category_attrs
-  } do
+  test "update_codelab/2 updates codelab challenge", %{valid_attr: valid_attr} do
     {:ok, codelab} = Codelabs.create_codelab(valid_attr)
-    {:ok, _category} = Codelabs.create_category(category_attrs)
 
     {:ok, updated_codelab} =
-      Codelabs.update_codelab(%Codelab{}, %{"level" => "level2", "name" => "challenge2"})
+      Codelabs.update_codelab(codelab, %{"level" => "level2", "name" => "challenge2"})
 
     assert Repo.get(Codelab, codelab.id) == updated_codelab
   end
