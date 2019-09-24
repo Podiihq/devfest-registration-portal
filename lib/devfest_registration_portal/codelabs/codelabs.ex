@@ -59,6 +59,11 @@ defmodule DevfestRegistrationPortal.Codelabs do
     |> Category.changeset()
   end
 
+  def change_codelab(codelab) do
+    codelab
+    |> Codelab.changeset()
+  end
+
   @doc """
   Returns the category from the the database with the given id
   """
@@ -69,12 +74,32 @@ defmodule DevfestRegistrationPortal.Codelabs do
   end
 
   @doc """
+  Returns the codelab from the database with the given id
+
+  """
+  @spec get_codelab(integer()) :: %Category{} | nil
+  def get_codelab(id) do
+    Codelab
+    |> Repo.get(id)
+  end
+
+  @doc """
   Updates a given category with the given attributes
   """
   @spec update_category(%Category{}, map()) :: {:ok, %Category{}} | {:error, %Ecto.Changeset{}}
   def update_category(category, attrs) do
     category
     |> Category.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  updates a given codelab challenge with the given attributes
+  """
+  @spec update_codelab(%Codelab{}, map()) :: {:ok, %Codelab{}} | {:error, %Ecto.Changeset{}}
+  def update_codelab(codelab, attrs) do
+    codelab
+    |> Codelab.changeset(attrs)
     |> Repo.update()
   end
 end

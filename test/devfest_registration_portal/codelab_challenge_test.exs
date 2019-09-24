@@ -14,7 +14,9 @@ defmodule DevfestRegistrationPortal.CodelabChallengeTest do
       "description" => "description1"
     }
 
-    [valid_attr: valid_attr]
+    category_attrs = %{"name" => "DevOps"}
+
+    [valid_attr: valid_attr, category_attrs: category_attrs]
   end
 
   test "create_codelab/1 inserts codelab challenge to database", %{valid_attr: valid_attr} do
@@ -30,5 +32,14 @@ defmodule DevfestRegistrationPortal.CodelabChallengeTest do
 
     assert %{description: ["should be at most 100 character(s)"]} = errors_on(changeset)
     assert {:error, _changeset} = Codelabs.create_codelab(attr)
+  end
+
+  test "update_codelab/2 updates codelab challenge", %{valid_attr: valid_attr} do
+    {:ok, codelab} = Codelabs.create_codelab(valid_attr)
+
+    {:ok, updated_codelab} =
+      Codelabs.update_codelab(codelab, %{"level" => "level2", "name" => "challenge2"})
+
+    assert Repo.get(Codelab, codelab.id) == updated_codelab
   end
 end

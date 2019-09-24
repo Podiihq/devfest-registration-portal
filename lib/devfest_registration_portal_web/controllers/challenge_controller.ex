@@ -25,4 +25,25 @@ defmodule DevfestRegistrationPortalWeb.ChallengeController do
         render(conn, "new.html", changeset: changeset)
     end
   end
+
+  def edit(conn, %{"id" => id}) do
+    codelab = Codelabs.get_codelab(id)
+    changeset = Codelabs.change_codelab(codelab)
+
+    render(conn, "edit.html", codelab: codelab, changeset: changeset)
+  end
+
+  def update(conn, %{"codelab" => codelab_params, "id" => id}) do
+    codelab = Codelabs.get_codelab(id)
+
+    case Codelabs.update_codelab(codelab, codelab_params) do
+      {:ok, codelab} ->
+        conn
+        |> put_flash(:info, "#{codelab.name} has been updated successfully")
+        |> redirect(to: Routes.challenge_path(conn, :index))
+
+      {:error, changeset} ->
+        render(conn, "edit.html", changeset: changeset)
+    end
+  end
 end

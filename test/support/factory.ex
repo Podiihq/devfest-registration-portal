@@ -2,12 +2,20 @@ defmodule DevfestRegistrationPortal.Factory do
   @moduledoc """
   Generates builds and inserts data for use in tests
   """
+
+  alias DevfestRegistrationPortal.Codelab
   alias DevfestRegistrationPortal.Codelabs.Category
   alias DevfestRegistrationPortal.Repo
 
   def build(:category) do
     %Category{
       name: "android"
+    }
+  end
+
+  def build(:codelab) do
+    %Codelab{
+      name: "level1"
     }
   end
 
